@@ -10,6 +10,5 @@ export class AppComponent {
 
   onFeatureSelect(feature: string) {
     this.currentFeature = feature;
-    console.log(this.currentFeature);
   }
 }
