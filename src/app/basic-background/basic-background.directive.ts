@@ -1,16 +1,28 @@
-import { Directive, OnInit, ElementRef } from '@angular/core';
+import { Directive, OnInit, ElementRef, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[basicBackground]',
+  selector: '[appBasicBackground]',
 })
 
 export class BasicHighlightDirective implements OnInit {
   constructor(public element: ElementRef) {}
 
+  @HostBinding('style.background') background: string;
+
+  @HostListener('mouseenter')
+  mouseover() {
+    this.background = 'lightGrey';
+  }
+
+  @HostListener('mouseleave')
+  mouseleave() {
+    this.background = 'white';
+  }
   ngOnInit() {
     this.element.nativeElement.style = `
-      background-color: red;
-      color: white
-    `;
-  }
+      background-color: white;
+      color: grey;
+      `;
+    }
+
 }
