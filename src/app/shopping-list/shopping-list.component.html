@@ -9,8 +9,14 @@
         class="list-group-item"
         style="cursor: pointer"
         *ngFor="let ingredient of ingredients"
+        basicBackground
       >
-        {{ ingredient.name }} ({{ ingredient.amount }})
+        <!-- <div
+          *appUnless="ingredient"
+        > -->
+        <div>
+          {{ ingredient.name }} ({{ ingredient.amount }})
+        </div>
       </a>
     </ul>
   </div>
